@@ -279,9 +279,9 @@ In both games, animations are indexed as XXX. Each game references the animation
 
 ### Packing the Animations into a PAM
 Once you have your collection of animations, find your model's PAM files. There may be as few as 2, or as many as 170 files. Hang in there!
+![Image](<img/anm4.png>)
 
 1. Drag-drop each PAM into PAM Editor, then click on `PAM Maker`. We will import each of our animations into our model's PAM.
-![Image](<img/anm4.png>)
     * You may need to resize the animation for the game engine. In most cases you can scale by 100x or 0.01x. 
     * Most animations do not need interpolation, but basic movement (like idling, walking/running, or hurt animations) will need 8 to 12 frames of interpolation. 
     * Set `Custom Loop Points` for dashes and rolls to 0. Looping the animation will reset the player movement, causing some rubberband movement in-game. 

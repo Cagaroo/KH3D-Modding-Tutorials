@@ -75,12 +75,13 @@ To make a texture replacement, we will need to find to the model's source textur
 8. After completing all texture edits, click on the `View Files` button. This will bring up all of the files you have queued. Verify all of your edits have been queued. Once you are ready, click on Export Mod. 
 ![Image](<img/nem3.png>)
 9. This brings up a new `Create Mod` window. Add in details where appropriate. Click Confirm once you're done.
+![Image](<img/nem4.png>)
 10. Save your mod file. You can navigate back to Exam Editor to install your mod!
 
 #### PC
 1. Navigate to Mod Manager's `extract` folder. Texture files are located in `\remastered`. For this example we will navigate to:
  `[..]\remastered\chara\pc\p_ex01\mig\0\bin\p_ex010.pmo\`. 
-![Image](<img/nem4.png>)
+![Image](<img/tex1.png>)
 2. _**Copy**_ the files you want to edit to your working folder, and edit your texture to your heart's content! 
     * Directly modifying the file WILL modify the texture in-game, but if there's ever a need to restore this texture you will need to re-extract the game. A very expensive mistake! 
 3. In your working folder, structure your folders and files in a way that makes sense to you. A typical case is to replicate the folder structure as the original file (ie. `[..]\remastered\chara\pc\p_ex01\mig\0\bin\p_ex010.pmo\`.)
@@ -252,6 +253,7 @@ In both games, animations are indexed as XXX. Each game references the animation
 ### Importing Animations for Retargetting 
 1. Import your target model, then your source model.
 2. Navigate to the Rokoko (or equivalent retarget plugin) menu. Set your source and target models. 
+![Image](<img/anm2.png>)
 3. Verify your two models' rest (or current) poses are generally aligned, then click Build Bone List. Adjust any settings as necessary.
     * This will generate a list of bones and what Rokoko thinks is its corresponding bone to retarget. Only one source bone can be retargetted to one target bone at a time. 
     * You can also try `Auto-Scale`, which will mainly copy the rotations of your source animation to your target armature. 
@@ -272,17 +274,20 @@ In both games, animations are indexed as XXX. Each game references the animation
     * Remove `NLA Strips`
     * Remove `All Actions`
     * `(Optional)` Add `Key All Bones`
+![Image](<img/mdl4.png>)
 6. Repeat for any addtional new animations. Don't forget to save all of your .blend files!
 
 ### Packing the Animations into a PAM
 Once you have your collection of animations, find your model's PAM files. There may be as few as 2, or as many as 170 files. Hang in there!
 
-1. Drag-drop each PAM into PAM Editor, then click on `PAM Maker`. We will convert each of our animations into a PAMANIM.
+1. Drag-drop each PAM into PAM Editor, then click on `PAM Maker`. We will import each of our animations into our model's PAM.
+![Image](<img/anm4.png>)
     * You may need to resize the animation for the game engine. In most cases you can scale by 100x or 0.01x. 
     * Most animations do not need interpolation, but basic movement (like idling, walking/running, or hurt animations) will need 8 to 12 frames of interpolation. 
     * Set `Custom Loop Points` for dashes and rolls to 0. Looping the animation will reset the player movement, causing some rubberband movement in-game. 
     * For most cases I recommend leaving `Reset root-bone translation & rotation` off.
 2. For best practice, make sure the `Flag` matches the original. Although it is currently unknown what this does, we want to make sure our character works as expected in-game. 
+![Image](<img/anm3.png>)
 3. Repeat this process for all animations across all PAM files. 
     * If there are some repeat animations you may also `Right click > Extract Animation` for any of them, and import into another. Each PAMANIM will retain interpolation and loop information. 
 

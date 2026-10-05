@@ -39,19 +39,25 @@ To make any type of texture, model, or animation replacements, we will first nee
 ### 3DS
 1. Ensure you have the 3DS *.rbin files, from dumping the game via either GodMode9 or Azahar. 
 2. Using Exam Editor, navigate to the `Nightmare Editor` option. This will bring up a new screen.
+
 ![Image](<img/nem0.png>)
+
 3. Click on the magenta `+` icon. This will open a file explorer window. Navigate to the appropriate .rbin file to unpack the file. 
     * This will extract a bunch of files in the order it is officially stored. The naming convention (index prefix and filename) are necessary for repacking later.
+
 ![Image](<img/nem1.png>)
 
 ### PC
 1. Using OpenKH's Mod Manager, navigate to `Settings > Run the Setup Wizard`
 2. Ensure Mod Manager has the path for _KINGDOM HEARTS 2.8 Final Chapter Prologue_
+
 ![Image](<img/okh1.png>)
+
 3. `(Optional)` Install LuaBackend and enable Direct Launching, these make loading and testing mods quicker.
 4. On `Extract Game Data`, select Dream Drop Distance.
     * Ensure you have at least 19 GB of storage!
     * `(Optional)` You may also declare a path for the extracted files. By default it will choose the "extract" folder relative to the Mod Manager.
+
 ![Image](<img/okh2.png>)
 
 From this point forward, all sections will assume you have the game files already extracted. 
@@ -65,7 +71,9 @@ To make a texture replacement, we will need to find to the model's source textur
 1. Using Exam Editor, navigate to the `Nightmare Editor` option. This will bring up a new screen.
 2. Ensure **chara_pc.rbin** has already been unpacked. **Select chara_pc.rbin** and filter on Model files (*.pmo) and search for **p_ex010.pmo**.
 3. Right-click on `p_ex010_01.ctt > Open Folder`. This will open the folder in your file explorer. 
+
 ![Image](<img/nem2.png>)
+
 4. Edit your texture to your heart's content, in your favorite picture editor! 
     * Generally, every texture will be saved without transparency, so keep that in mind.
     * Textures will also need to be the same dimensions as the original file. Ignoring this will cause your texture to display incorrectly in-game, or even crash your game.
@@ -73,15 +81,21 @@ To make a texture replacement, we will need to find to the model's source textur
 6. Right click on the texture filename (ie. **p_ex010_01.ctt**), and queue the file. This is necessary to repack the game files.
 7. Repeat for additional edits for other models or textures.
 8. After completing all texture edits, click on the `View Files` button. This will bring up all of the files you have queued. Verify all of your edits have been queued. Once you are ready, click on Export Mod. 
+
 ![Image](<img/nem3.png>)
+
 9. This brings up a new `Create Mod` window. Add in details where appropriate. Click Confirm once you're done.
+
 ![Image](<img/nem4.png>)
+
 10. Save your mod file. You can navigate back to Exam Editor to install your mod!
 
 #### PC
 1. Navigate to Mod Manager's `extract` folder. Texture files are located in `\remastered`. For this example we will navigate to:
  `[..]\remastered\chara\pc\p_ex01\mig\0\bin\p_ex010.pmo\`. 
+
 ![Image](<img/tex1.png>)
+
 2. _**Copy**_ the files you want to edit to your working folder, and edit your texture to your heart's content! 
     * Directly modifying the file WILL modify the texture in-game, but if there's ever a need to restore this texture you will need to re-extract the game. A very expensive mistake! 
 3. In your working folder, structure your folders and files in a way that makes sense to you. A typical case is to replicate the folder structure as the original file (ie. `[..]\remastered\chara\pc\p_ex01\mig\0\bin\p_ex010.pmo\`.)
@@ -109,6 +123,7 @@ As of writing, PMO files are view-only and can only be converted with the approp
 1. Navigate to the file you want to replace. We will use **p_ex020.pmo** for this example.
 2. Open **OpenKH.KhModels**, then drag-drop your PMO. 
 3. Under `File > Export`, and save your model into your working folder.
+
 ![Image](<img/khm1.png>)
 
 I will now go over acquiring a model from other _KINGDOM HEARTS_ games. Skip ahead if this step is not relevant to you. 
@@ -120,12 +135,15 @@ _Dream Drop Distance_ and _Birth By Sleep_ share a filetype, but have different 
     2. Open **Powershell** within OpenKH's root directory ("Shift + right click > Open Powershell window here"). 
     3. Enter the following:
     `.\Apps\OpenKh.Command.Arc.exe <location of ARC file> <location of your "unpacked" folder>`
+
 ![Image](<img/arc1.png>)
+
     4. In **OpenKH.KhModels**, drag-drop the newly generated PMO. Go to `File > Export` and save your exported FBX in your working folder.
 2. **KHBBSMesh**:
     1. Open **KHBBSMesh**, then drag-drop the ARC file. A list window will pop up. 
     2. Load the PMO, then go to `File > Export`
     3. After configuring your export options, export the file as FBX. 
+
 ![Image](<img/anm1.png>)
 
 Alternatively, a PMO from _Birth By Sleep_ can be directly converted to be used in _Dream Drop Distance_ by using Kite98's **PMO Builder** or **KH Asset Studio**. 
@@ -136,6 +154,7 @@ Alternatively, a PMO from _Birth By Sleep_ can be directly converted to be used 
 _KINGDOM HEARTS II_ uses MDLX, which is well documented at this point. I have had the most success exporting FBXs with the following method.
 1. Open **OpenKh.MdlxEditor**, and drag-drop your MDLX.
 2. Under ``File > Export model > FBX``, save your model into your working folder. 
+
 ![Image](<img/khm2.png>)
 
 
@@ -148,9 +167,11 @@ _KINGDOM HEARTS II_ uses MDLX, which is well documented at this point. I have ha
         2. Duplicate the Deform Armature modifier
         3. Ctrl + A to set the rest pose
         4. Apply one of the Deform Armature modifiers
+
+![Image](<img/mdl1.png>)
+
 3. Parent your _source mesh_ to the _target armature_, with empty vertex groups. 
     1. Change the transform pivot point to 3D Cursor (assuming it is at position 0, 0, 0).
-    ![Image](<img/mdl1.png>)
     2. In Edit Mode, edit your _source mesh_ to match the position of your _target armature_. You may need to scale the mesh by increments of 100x or 0.01x. 
     3. In Object Mode, reset the rotation, location, and scale of the _target armature_ (Alt + R, Alt + G, Alt + S). The armature will most likely rotate 90 degrees clockwise along the Y-axis.
     4. In Edit Mode, edit your _source mesh_ to match the new rotation. 
@@ -162,12 +183,16 @@ _KINGDOM HEARTS II_ uses MDLX, which is well documented at this point. I have ha
     * Copying existing vertex groups
     * Manual weight painting
     * (Try your luck with) automatic weight painting
-    ![Image](<img/mdl2.png>)
+
+![Image](<img/mdl2.png>)
+
 5. Reference your textures into your model. 
     * By default, if they are in the same working folder as the FBX you imported, Blender will reference them automatically.
     * Limit your textures to a max size of 512 x 512 px, as the game engine may not know how to properly handle anything larger than that.
 6. Rename the mesh to your model name. This is to prevent your model from appearing where they're not supposed to (like "cutscene ghosting"... spooky!).
+
 ![Image](<img/mdl3.png>)
+
 7. Finally, export your FBX. Ensure you are exporting your new model! Exporting grabs *everything* in the .blend file, so remove anything you're not planning on exporting. While exporting, review these changes as well:
     * Remove "Add Leaf Bones"
 
@@ -238,8 +263,10 @@ In both games, animations are indexed as XXX. Each game references the animation
     * Similarly, convert a _Dream Drop Distance_ PAM to a _Birth By Sleep_ version, then import into KHBBSMesh. 
 2. Under the `Skeleton` menu select which animation to play.
 3. Under `File > Export`, select the animation you want to export.
-    * By default, exported animations will be located in `.\resources\export`. I recommend exporting as `Autodesk FBX (ascii)` and keep `Skip Geometry` unchecked.
+    * By default, exported animations will be located in `.\resources\export`. I recommend exporting as `Autodesk FBX (ascii)`.
+
 ![Image](<img/anm1.png>)
+
 4. Repeat for any additional animations. 
 
 
@@ -247,13 +274,17 @@ In both games, animations are indexed as XXX. Each game references the animation
 1. Using **KH2MsetMotionEditor**, import a matching set of MDLX and MSET files.
 2. Under `MotionPlayer` select which animation to play/extract.
 3. Under `File > Export current motion to FBX`, save your animation to your working folder.
+
 ![Image](<img/khm3.png>)
+
 4. Repeat for any additional animations.
 
 ### Importing Animations for Retargetting 
 1. Import your target model, then your source model.
 2. Navigate to the Rokoko (or equivalent retarget plugin) menu. Set your source and target models. 
+
 ![Image](<img/anm2.png>)
+
 3. Verify your two models' rest (or current) poses are generally aligned, then click Build Bone List. Adjust any settings as necessary.
     * This will generate a list of bones and what Rokoko thinks is its corresponding bone to retarget. Only one source bone can be retargetted to one target bone at a time. 
     * You can also try `Auto-Scale`, which will mainly copy the rotations of your source animation to your target armature. 
@@ -269,16 +300,19 @@ In both games, animations are indexed as XXX. Each game references the animation
 5. Keyframe any bones not retargetted. I usually just put a single keyframe at frame 1 for bones without any keyframes post-retarget.
 6. In the Output Properties, adjust the `Frame Range` to the length of the animation + 1 frame. In the animation timeline, move the final keyframe to the new endpoint.
     * Animation inserts, at some point, lose the last keyframe. Adding in a dummy keyframe ensures each animation ends as intended. 
-6. Export your animation as an FBX. I like to keep the following settings on:
+7. Export your animation as an FBX. I like to keep the following settings on:
     * Remove `Add Leaf Bones`
     * Remove `NLA Strips`
     * Remove `All Actions`
     * `(Optional)` Add `Key All Bones`
+
 ![Image](<img/mdl4.png>)
-6. Repeat for any addtional new animations. Don't forget to save all of your .blend files!
+
+8. Repeat for any addtional new animations. Don't forget to save all of your .blend files!
 
 ### Packing the Animations into a PAM
 Once you have your collection of animations, find your model's PAM files. There may be as few as 2, or as many as 170 files. Hang in there!
+
 ![Image](<img/anm4.png>)
 
 1. Drag-drop each PAM into PAM Editor, then click on `PAM Maker`. We will import each of our animations into our model's PAM.
@@ -287,7 +321,9 @@ Once you have your collection of animations, find your model's PAM files. There 
     * Set `Custom Loop Points` for dashes and rolls to 0. Looping the animation will reset the player movement, causing some rubberband movement in-game. 
     * For most cases I recommend leaving `Reset root-bone translation & rotation` off.
 2. For best practice, make sure the `Flag` matches the original. Although it is currently unknown what this does, we want to make sure our character works as expected in-game. 
+
 ![Image](<img/anm3.png>)
+
 3. Repeat this process for all animations across all PAM files. 
     * If there are some repeat animations you may also `Right click > Extract Animation` for any of them, and import into another. Each PAMANIM will retain interpolation and loop information. 
 

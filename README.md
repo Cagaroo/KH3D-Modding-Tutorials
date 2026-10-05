@@ -7,12 +7,12 @@ Welcome! Here is a collection of tutorials for modding _Kingdom Hearts: Dream Dr
 * **OpenKH**: an online resource that contains all related information to _Kingdom Hearts: Dream Drop Distance_. 
     * **[Entities](https://openkh.dev/ddd/dictionary/entities.html)**: a resource that lists many of the models in the game. 
 * **mod.yml**: Mod instructions PC mods. See OpenKH's [YAML documentation](https://openkh.dev/tool/GUI.ModsManager/creatingMods.html) for more information.
-* **meta.json**: Mod instructions for 3DS mods. These can be edited directly in Nightmare Editor.d
+* **meta.json**: Mod instructions for 3DS mods. These can be edited directly in Nightmare Editor.
 
 ## Prerequisites
 As for all projects, you should be set up with the appropriate files, programs, and tools! I will list what I have used:
 
-* [OpenKH](https://openkh.dev/ddd/)
+* [OpenKH](https://openkh.dev/ddd/) (PC only)
 * [Nightmare Editor by Solt11](https://github.com/solt-frfr/Nightmare-Editor-AUI/releases) (3DS only)
 * [OpenKH.KHModels](https://github.com/OpenKH/OpenKh/releases) by OpenKH + Kite98
 * PMO Builder/KH Asset Studio by Kite98
